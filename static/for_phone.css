@@ -1,0 +1,40 @@
+.confirmation-box {
+    position: fixed;
+    bottom: 5%;  /* Moves the confirmation box near the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    background:rgba(128, 128, 128, 0.39);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 10;
+    text-align: center; /* Centers the text */
+    width: 80%;
+    max-width: 400px;
+    overflow: hidden;
+}
+
+/* Blurred background inside the confirmation box */
+.display {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(3px); /* Light blur to keep visibility */
+    z-index: 5; /* Behind confirmation box but above numpad */
+}
+
+/* Center the OK button */
+.confirmation-box button {
+    display: block;
+    text-shadow: blue;
+    margin: 15px auto 0; /* Adds space above and centers the button */
+    padding: 10px 20px;
+    border: none;
+    background:rgba(128, 128, 128, 0.39);
+    color:blue;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}

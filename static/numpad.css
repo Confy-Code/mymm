@@ -1,0 +1,117 @@
+/* Full black background */
+body {
+    padding: 50px;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+/* Top Bar */
+.top-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background:black;
+        color: white;
+        padding: 10px 15px;
+        display: flex;
+        justify-content: space-between; /* Align left and right items */
+        align-items: center;
+        z-index: 1000; /* Ensure it stays above other elements */
+}
+
+/* Title ("Phone") */
+.top-bar .title {
+    font-weight: bold;
+}
+
+/* Search Button */
+.top-bar .search-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+
+/* Display box (numbers inside shrink) */
+#display {
+    position: absolute;  /* Place it above other elements */
+    top: 10%;  /* Move it to the top */
+    left: 50%;
+    transform: translateX(-50%); /* Center it horizontally */
+    
+    background: black;
+    color: white;
+    font-size: 48px;
+    width: 80%;
+    text-align: center;
+    border: none;
+    outline: none;
+
+    z-index: 1000;  /* Makes sure it's above everything */
+}
+
+.numpad-container {
+    position: fixed;  /* Keeps it in place */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers it exactly */
+    z-index: 1;
+}
+
+/* Buttons Styling */
+button {
+    position: relative;
+    overflow: hidden;
+    font-size: 18px;
+    padding: 15px;
+    margin: 5px;
+    cursor: pointer;
+    background:black;
+    border: none;
+    border-radius: 50%;
+    color: white;
+}
+
+button:hover {
+    background:black;
+}
+
+button:active {
+    transform: scale(0.9);
+    transition: transform 0.1s ease-out;
+}
+
+
+.ripple {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.5); /* White semi-transparent */
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-effect 0.4s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple-effect {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/{{My_kit}}.js" crossorigin="anonymous"></script>
+    <link href="{{url_for('static', filename='numpad.css')}}" rel="stylesheet">
+    <title>Phone Numpad</title>
+</head>
+<body>
+    <div class="top-bar">
+        <span class="title">Phone</span>
+        <button type="button" class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+    </div>
+    <form action="/phone">
+        <input type="text" name="display" id="display" >
+        <div class="numpad-container">
+            <table>
+                <tr>
+                    <td><button type= "button"  onclick="enterNumber('1')">1<br>~</button></td>
+                    <td><button type= "button"  onclick="enterNumber('2')">2<br>ABC</button></td>
+                    <td><button type= "button"  onclick="enterNumber('3')">3<br>DEF</button></td>
+                </tr>
+                <tr>
+                    <td><button type= "button"  onclick="enterNumber('4')">4<br>GHI</button></td>
+                    <td><button type= "button"  onclick="enterNumber('5')">5<br>JKL</button></td>
+                    <td><button type= "button"  onclick="enterNumber('6')">6<br>MNO</button></td>
+                </tr>
+                <tr>
+                    <td><button type= "button"  onclick="enterNumber('7')">7<br>PQRS</button></td>
+                    <td><button type= "button"  onclick="enterNumber('8')">8<br>TUV</button></td>
+                    <td><button type= "button"  onclick="enterNumber('9')">9<br>WXYZ</button></td>
+                </tr>
+                <tr>
+                    <td><button type= "button"  onclick="enterNumber('*')">*</button></td>
+                    <td><button type= "button"  onclick="enterNumber('0')">0</button></td>
+                    <td><button type= "button"  onclick="enterNumber('#')">#</button></td>
+                </tr>
+                <tr>
+                    <td><button type="button"><i class="fa-solid fa-video"></i></button></td>
+                    <td><button type="submit"><i class="fa-solid fa-phone"></i></button></td>
+                    <td><button type= "button"  onclick="eraseLast()"><i class="fa-solid fa-backspace"></i></button></td>
+                </tr>
+            </table>    
+        </div>
+        
+        
+
+        <script>
+            function enterNumber(num) {
+                let display= document.getElementById('display');
+                display.value +=num;
+                adjust()
+            }
+            
+            function eraseLast() {
+                let display = document.getElementById('display');
+                display.value=display.value.slice(0,-1);
+                adjust()
+            }
+
+            function adjust(){
+                const display=document.getElementById('display');
+                const length= display.value.length;
+                if (length <= 5) {
+            display.style.fontSize = "48px";}
+                else if (length <= 10) {
+            display.style.fontSize = "36px";}
+                else if (length <= 15) {
+            display.style.fontSize = "24px";}
+                else {
+            display.style.fontSize = "18px";
+            }
+            document.querySelectorAll("button").forEach(button => {
+                button.addEventListener("click", function (event) {
+                    let ripple = document.createElement("span");
+                    ripple.classList.add("ripple");
+
+                    let rect = this.getBoundingClientRect();
+                    ripple.style.left = `${event.clientX - rect.left}px`;
+                    ripple.style.top = `${event.clientY - rect.top}px`;
+
+                    this.appendChild(ripple);
+
+                    setTimeout(() => {
+                    ripple.remove();
+                    }, 400);
+                });
+            });
+        }    
+        </script>
+    </form> 
+</body>
+</html>

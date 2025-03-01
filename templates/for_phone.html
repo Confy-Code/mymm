@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{url_for('static', filename='for_phone.css')}}" rel="stylesheet">
+    <title>Confirmation Message</title>
+    
+</head>
+<body>
+    <form action="/index" >
+        <div class="display">
+            <img src="/static/numpad_bkg.jpeg" alt="local image">
+        </div>
+        <div class="confirmation-box">
+            <p>You have sent {{amount}} RWF to 250{{number}}. Your balance is 3,982 RWF. Thank you for using MTN Mobile Money</p>
+            <button type="submit" onclick="closeConfirmation()">OK</button>
+        </div>
+        
+        <script>
+            function closeConfirmation() {
+                document.querySelector('.comfirmation-box').style.display = 'none';}
+        </script>
+    </form>
+</body>
+</html>
