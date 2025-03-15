@@ -72,7 +72,7 @@ body {
     top: 30%; /* Position it below the #display */
     left: 50%;
     text-align: center;
-    transform: translateX(-30%);
+    transform: translateX(-40%);
     z-index: 1;
     width: 80%; /* Match the width of #display */
     max-width: 400px; /* Optional: Limit the maximum width */
