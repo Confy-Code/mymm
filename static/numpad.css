@@ -63,13 +63,13 @@ body {
 }
 
 .numpad-container {
-    position: fixed;  /* Keeps it in place */
-    top: 50%;
+    position: absolute;
+    top: calc(100% + 10px); /* Keeps it below the input field */
     left: 50%;
-    transform: translate(-50%, -50%); /* Centers it exactly */
-    z-index: 1;
-}
-
+    transform: translateX(-50%);
+    z-index: 1;  
+} 
+ 
 /* Buttons Styling */
 button {
     position: relative;
