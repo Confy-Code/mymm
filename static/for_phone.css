@@ -3,7 +3,7 @@
     bottom: 5%;  /* Moves the confirmation box near the bottom */
     left: 50%;
     transform: translateX(-50%);
-    background:rgba(128, 128, 128, 0.39);
+    background:rgba(128, 128, 128, 0.247);
     color: white;
     padding: 20px;
     border-radius: 10px;
@@ -40,9 +40,10 @@
     margin: 15px auto 0; /* Adds space above and centers the button */
     padding: 10px 20px;
     border: none;
-    background:rgba(128, 128, 128, 0.39);
-    color:blue;
+    background:rgba(128, 128, 128, 0.158);
+    color:rgba(0, 0, 255, 0.603);
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
+    font-weight: bold;
 }

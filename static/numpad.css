@@ -1,4 +1,12 @@
 /* Full black background */
+/* Prevent scrolling */
+html, body {
+    height: 100%;
+    overflow: hidden; /* Disable scrolling */
+    margin: 0;
+    padding: 0;
+}
+
 body {
     padding: 50px;
     background-color: black;
@@ -15,17 +23,17 @@ body {
 
 /* Top Bar */
 .top-bar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background:black;
-        color: white;
-        padding: 10px 15px;
-        display: flex;
-        justify-content: space-between; /* Align left and right items */
-        align-items: center;
-        z-index: 1000; /* Ensure it stays above other elements */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: black;
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between; /* Align left and right items */
+    align-items: center;
+    z-index: 1000; /* Ensure it stays above other elements */
 }
 
 /* Title ("Phone") */
@@ -42,15 +50,12 @@ body {
     cursor: pointer;
 }
 
-
-
 /* Display box (numbers inside shrink) */
 #display {
-    position: absolute;  /* Place it above other elements */
-    top: 10%;  /* Move it to the top */
+    position: absolute; /* Place it above other elements */
+    top: 20%; /* Adjust this value to position it properly */
     left: 50%;
     transform: translateX(-50%); /* Center it horizontally */
-    
     background: black;
     color: white;
     font-size: 48px;
@@ -58,17 +63,22 @@ body {
     text-align: center;
     border: none;
     outline: none;
-
-    z-index: 1000;  /* Makes sure it's above everything */
+    z-index: 1000; /* Makes sure it's above everything */
 }
 
+/* Numpad Container */
 .numpad-container {
     position: absolute;
-    top: calc(100% + 10px); /* Keeps it below the input field */
+    top: 30%; /* Position it below the #display */
     left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;  
-} 
+    text-align: center;
+    transform: translateX(-30%);
+    z-index: 1;
+    width: 80%; /* Match the width of #display */
+    max-width: 400px; /* Optional: Limit the maximum width */
+    align-items: center;
+    justify-content: center;
+}
  
 /* Buttons Styling */
 button {
