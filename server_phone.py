@@ -17,7 +17,7 @@ def index():
 @app.route('/phone')
 def phone():
     display=request.args.get('display')
-    expression=re.compile(r'(\*182\*1\*1\*)(\d+)\*(\d+)\#?')
+    expression=re.compile(r'(\*182\*\d+\*1\*)(\d+)\*(\d+)\#?')
     for exp in expression.findall(display):
         number=int(exp[1])
         amount=int(exp[2])
