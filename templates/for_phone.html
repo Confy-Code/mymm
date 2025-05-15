@@ -13,8 +13,13 @@
             <img src="/static/numpad_bkg.jpeg" alt="local image">
         </div>
         <div class="confirmation-box">
-            <p>You have sent {{amount}} RWF to 250{{number}}. Your balance is 3,982 RWF. Thank you for using MTN Mobile Money</p>
-            <button type="submit" onclick="closeConfirmation()">OK</button>
+            {% if cond %}
+                <p>You have sent {{amount}} RWF to 250{{number}}. Your balance is 3,982 RWF. Thank you for using MTN Mobile Money</p>
+                <button type="submit" onclick="closeConfirmation()">OK</button>
+            {% else %}
+                <p>Y'ello, You have paid {{amount}} RWF to {{recipient}}, {{number}}. Fee was 0 RWF. Transaction ID: {{Transaction_ID}}. Your Mobile Money account Balance is now 2,141 RWF</p>
+                <button type="submit" onclick="closeConfirmation()">OK</button>
+            {% endif %}
         </div>
         
         <script>

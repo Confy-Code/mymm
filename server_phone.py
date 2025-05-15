@@ -2,6 +2,7 @@ from flask import request
 from flask import render_template
 from flask import Flask
 from dotenv import load_dotenv
+import random
 import re
 import os
 
@@ -17,11 +18,22 @@ def index():
 @app.route('/phone')
 def phone():
     display=request.args.get('display')
-    expression=re.compile(r'(\*182\*\d+\*1\*)(\d+)\*(\d+)\#?')
-    for exp in expression.findall(display):
-        number=int(exp[1])
-        amount=int(exp[2])
-    return render_template('for_phone.html',number=number,amount=amount)
-
+    IDs=['20604960313', '21715093102', '20503125319']
+    Transaction_ID=random.choice(IDs)
+    recipient=request.args.get('recipient')
+    expression1=re.compile(r'(\*182\*1\*1\*)(\d+)\*(\d+)\#?')
+    expression2=re.compile(r'(\*182\*8\*1\*)(\d+)\*(\d+)\#?')
+    if expression1.findall(display):
+        for exp in expression1.findall(display):
+            number=int(exp[1])
+            amount=int(exp[2])
+        return render_template('for_phone.html',number=number,amount=amount, cond=True)
+    
+    elif expression2.findall(display):
+        for exp in expression2.findall(display):
+            number=int(exp[1])
+            amount=int(exp[2])
+        return render_template('for_phone.html', number=number, amount=amount, cond=False, recipient=recipient, Transaction_ID=Transaction_ID)
+    
 if __name__=="__main__":
     app.run(host='0.0.0.0', port='8000')
